@@ -6,7 +6,7 @@ public:
     autoJoin: true
     listenOnlyMode: true
     forceListenOnly: false
-    skipCheck: false
+    skipCheck: true
     clientTitle: لحظه نگار | وبینار
     appName: لحظه نگار وبینار
     bbbServerVersion: 2.2
@@ -86,7 +86,7 @@ public:
     enableNetworkMonitoring: false
     packetLostThreshold: 10
   kurento:
-    wsUrl: HOST
+    wsUrl: wss://webinar.lahzenegar.com/bbb-webrtc-sf
     # Valid for video-provider. Time (ms) before its WS connection times out
     # and tries to reconnect.
     wsConnectionTimeout: 4000
