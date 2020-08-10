@@ -13,6 +13,7 @@
   --color-red-light: #df465f;
   --color-red-lighter: #df9993;
   --color-red-lightest: #f2d8df;
+  --color-red-highlight: #b61d3e;
 
   --color-primary: #DF254D;
   --color-success: #008081;
@@ -25,7 +26,7 @@
   --color-heading: var(--color-gray-dark);
 
   --color-link: var(--color-primary);
-  --color-link-hover: #DF254D;
+  --color-link-hover: var(--color-red-highlight);
 
   --color-gray-label: var(--color-gray);
 
