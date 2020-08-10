@@ -161,7 +161,7 @@
     "app.presentation.presentationToolbar.fitToPage": "اندازه تصویر را متناسب با عرض صفحه کن",
     "app.presentation.presentationToolbar.goToSlide": "اسلاید {0}",
     "app.presentationUploder.title": "مدیریت فایل‌های ارائه",
-    "app.presentationUploder.message": "‫-‬ شما می‌توانید فایل PDF یا عکس را آپلود کنید.\‫-‬ لطفا از انتخاب بودن ارائه مورد نظر با استفاده از دایره سبزرنگ اطمینان حاصل نمایید.",
+    "app.presentationUploder.message": "‫-‬ شما می‌توانید فایل PDF یا عکس را آپلود کنید. ‫-‬ لطفا از انتخاب بودن ارائه مورد نظر با استفاده از دایره سبزرنگ اطمینان حاصل نمایید.",
     "app.presentationUploder.uploadLabel": "آپلود",
     "app.presentationUploder.confirmLabel": "تایید",
     "app.presentationUploder.confirmDesc": "تغییرات خود را ذخیره کنید و ارائه را آغاز نمایید.",
