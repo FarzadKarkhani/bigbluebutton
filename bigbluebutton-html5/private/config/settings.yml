@@ -1,7 +1,7 @@
 public:
   app:
-    mobileFontSize: 16px
-    desktopFontSize: 14px
+    mobileFontSize: 14px
+    desktopFontSize: 12px
     audioChatNotification: false
     autoJoin: true
     listenOnlyMode: true
@@ -11,7 +11,7 @@ public:
     appName: لحظه نگار وبینار
     bbbServerVersion: 2.2
     copyright: "لحظه‌نگار وبینار - کلاینت بیگ‌بلوباتن"
-    html5ClientBuild: HTML5_CLIENT_VERSION
+    html5ClientBuild: 2.2.9
     helpLink: https://lzn.gr/webinarhelp
     lockOnJoin: true
     cdn: ""
