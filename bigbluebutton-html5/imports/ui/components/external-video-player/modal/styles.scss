@@ -108,7 +108,7 @@
   }
 
   input {
-    @include inputFocus(var(--color-blue-light));
+    @include inputFocus(var(--color-red-light));
     display: block;
     margin: 10px 0 10px 0;
     padding: 0.4em;

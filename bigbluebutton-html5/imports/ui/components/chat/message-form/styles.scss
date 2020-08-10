@@ -49,7 +49,7 @@
 }
 
 .input {
-  @include inputFocus(var(--color-blue-light));
+  @include inputFocus(var(--color-red-light));
 
   flex: 1;
   background: #fff;

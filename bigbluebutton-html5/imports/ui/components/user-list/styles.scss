@@ -27,7 +27,7 @@
   --user-icons-color-hover: var(--color-gray);
 
   --list-item-bg-hover: #dce4ed;
-  --item-focus-border: var(--color-blue-lighter);
+  --item-focus-border: var(--color-red-lighter);
 }
 
 /* classes for extending
@@ -154,7 +154,7 @@
 .enterActive,
 .appearActive {
   opacity: 1;
-  
+
   :global(.animationsEnabled) & {
     transition: all 600ms;
   }
