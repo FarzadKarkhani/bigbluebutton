@@ -34,7 +34,7 @@ const intlMessages = defineMessages({
   },
 });
 
-const AboutComponent = ({ intl, clientBuild, copyright }) => (
+const AboutComponent = ({ intl, companyName, copyright, companyPhone, companyAddress, clientBuild }) => (
   <Modal
     title={intl.formatMessage(intlMessages.title)}
     dismiss={{
@@ -42,7 +42,10 @@ const AboutComponent = ({ intl, clientBuild, copyright }) => (
       description: intl.formatMessage(intlMessages.dismissDesc),
     }}
   >
+    {`${companyName}`} <br />
     {`${intl.formatMessage(intlMessages.copyright)} ${copyright}`} <br />
+    {`${companyPhone}`} <br />
+    {`${companyAddress}`} <br />
     {`${intl.formatMessage(intlMessages.version)} ${clientBuild}`}
   </Modal>
 );

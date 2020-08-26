@@ -11,8 +11,11 @@ const AboutContainer = props => (
 
 const getClientBuildInfo = function () {
   return {
-    clientBuild: Meteor.settings.public.app.html5ClientBuild,
+    companyName: Meteor.settings.public.app.companyName,
     copyright: Meteor.settings.public.app.copyright,
+    companyPhone: Meteor.settings.public.app.companyPhone,
+    companyAddress: Meteor.settings.public.app.companyAddress,
+    clientBuild: Meteor.settings.public.app.html5ClientBuild,
   };
 };
 

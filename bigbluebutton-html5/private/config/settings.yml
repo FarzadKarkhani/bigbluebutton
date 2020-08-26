@@ -10,7 +10,10 @@ public:
     clientTitle: لحظه نگار | وبینار
     appName: لحظه نگار وبینار
     bbbServerVersion: 2.2
-    copyright: "لحظه‌نگار وبینار - کلاینت بیگ‌بلوباتن"
+    copyright: "لحظه‌نگار سرویس برگزاری رویداد آنلاین - کلاینت بیگ‌بلوباتن"
+    companyName: "شرکت پارسی زبانان سامانه (سهامی خاص)"
+    companyAddress: "آدرس: تهران، خیابان مطهری، پلاک ۲۲، طبقه ۵"
+    companyPhone: "شماره تماس پشتیبانی: 02191014515"
     html5ClientBuild: 2.2.9
     helpLink: https://lzn.gr/webinarhelp
     lockOnJoin: true
