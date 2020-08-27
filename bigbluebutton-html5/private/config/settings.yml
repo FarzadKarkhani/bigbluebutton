@@ -89,7 +89,7 @@ public:
     enableNetworkMonitoring: false
     packetLostThreshold: 10
   kurento:
-    wsUrl: wss://webinar.lahzenegar.com/bbb-webrtc-sf
+    wsUrl: wss://webinar-bk.lahzenegar.com/bbb-webrtc-sf
     # Valid for video-provider. Time (ms) before its WS connection times out
     # and tries to reconnect.
     wsConnectionTimeout: 4000
