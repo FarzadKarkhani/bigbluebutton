@@ -621,7 +621,7 @@ function loadBranding() {
   }
 
   loadLogo(logo);
-  loadCopyright(copyright);
+  // loadCopyright(copyright);
 };
 
 function loadLogo(logo) {

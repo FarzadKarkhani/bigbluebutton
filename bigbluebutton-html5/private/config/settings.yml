@@ -209,7 +209,7 @@ public:
     enabled: true
     max_custom: 10
   captions:
-    enabled: true
+    enabled: false
     enableDictation: false
     backgroundColor: "#000000"
     fontColor: "#FFFFFF"
