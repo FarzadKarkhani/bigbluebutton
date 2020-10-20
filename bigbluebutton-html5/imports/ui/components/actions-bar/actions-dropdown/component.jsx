@@ -86,6 +86,7 @@ class ActionsDropdown extends PureComponent {
 
     this.handlePresentationClick = this.handlePresentationClick.bind(this);
     this.handleExternalVideoClick = this.handleExternalVideoClick.bind(this);
+    this.handleStreamClick = this.handleStreamClick.bind(this);
   }
 
   componentWillUpdate(nextProps) {
@@ -161,6 +162,18 @@ class ActionsDropdown extends PureComponent {
           />
         )
         : null),
+      (amIPresenter
+          ? (
+              <DropdownListItem
+                  data-test="streamPresentation"
+                  icon="network"
+                  label={formatMessage(presentationLabel)}
+                  description="Stream on Lahzenegar"
+                  key="stream"
+                  onClick={this.handleStreamClick}
+              />
+          )
+          : null),
       (amIPresenter && allowExternalVideo
         ? (
           <DropdownListItem
@@ -184,6 +197,11 @@ class ActionsDropdown extends PureComponent {
   handlePresentationClick() {
     const { mountModal } = this.props;
     mountModal(<PresentationUploaderContainer />);
+  }
+
+  handleStreamClick() {
+  //  TODO: Add API call for lws
+
   }
 
   render() {
