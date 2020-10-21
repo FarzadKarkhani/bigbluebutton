@@ -221,8 +221,11 @@ class ActionsDropdown extends PureComponent {
   }
 
   handleStreamingClick() {
+    const {
+       intl,
+    } = this.props;
   //  TODO: Add API call for lws
-      notify(intl.formatMessage(intlMessages.startStreamNotify), 'info', 'network')
+    notify(intl.formatMessage(intlMessages.startStreamNotify), 'info', 'network');
   }
 
   render() {
