@@ -22,6 +22,7 @@ const propTypes = {
   shortcuts: PropTypes.string,
   handleTakePresenter: PropTypes.func.isRequired,
   allowExternalVideo: PropTypes.bool.isRequired,
+  allowStreaming: PropTypes.bool.isRequired,
   stopExternalVideoShare: PropTypes.func.isRequired,
 };
 
@@ -74,6 +75,14 @@ const intlMessages = defineMessages({
     id: 'app.actionsBar.actionsDropdown.stopShareExternalVideo',
     description: 'Stop sharing external video button',
   },
+  startStreamLabel: {
+     id: 'app.actionsBar.actionsDropdown.startStreamLabel',
+     description: 'Start streaming on Lahzenegar button',
+  },
+  stopStreamLabel: {
+      id: 'app.actionsBar.actionsDropdown.stopStreamLabel',
+      description: 'Stop streaming on Lahzenegar button',
+  },
 });
 
 class ActionsDropdown extends PureComponent {
@@ -86,7 +95,7 @@ class ActionsDropdown extends PureComponent {
 
     this.handlePresentationClick = this.handlePresentationClick.bind(this);
     this.handleExternalVideoClick = this.handleExternalVideoClick.bind(this);
-    this.handleStreamClick = this.handleStreamClick.bind(this);
+    this.handleStreamingClick = this.handleStreamingClick.bind(this);
   }
 
   componentWillUpdate(nextProps) {
@@ -102,8 +111,10 @@ class ActionsDropdown extends PureComponent {
       intl,
       amIPresenter,
       allowExternalVideo,
+      allowStreaming,
       handleTakePresenter,
       isSharingVideo,
+      isStreaming,
       isPollingEnabled,
       stopExternalVideoShare,
     } = this.props;
@@ -162,15 +173,16 @@ class ActionsDropdown extends PureComponent {
           />
         )
         : null),
-      (amIPresenter
+      (amIPresenter && allowStreaming
           ? (
               <DropdownListItem
-                  data-test="streamPresentation"
+                  data-test="streamingPresentation"
                   icon="network"
-                  label={formatMessage(presentationLabel)}
-                  description="Stream on Lahzenegar"
-                  key="stream"
-                  onClick={this.handleStreamClick}
+                  label={!isStreaming ? intl.formatMessage(intlMessages.startStreamLabel)
+                      : intl.formatMessage(intlMessages.stopStreamLabel)}
+                  description="Streaming on Lahzenegar"
+                  key="streaming"
+                  onClick={this.handleStreamingClick}
               />
           )
           : null),
@@ -199,7 +211,7 @@ class ActionsDropdown extends PureComponent {
     mountModal(<PresentationUploaderContainer />);
   }
 
-  handleStreamClick() {
+  handleStreamingClick() {
   //  TODO: Add API call for lws
 
   }

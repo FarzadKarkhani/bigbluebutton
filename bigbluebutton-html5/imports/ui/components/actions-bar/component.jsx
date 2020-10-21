@@ -34,6 +34,7 @@ class ActionsBar extends PureComponent {
       isPollingEnabled,
       isThereCurrentPresentation,
       allowExternalVideo,
+      allowStreaming,
     } = this.props;
 
     const actionBarClasses = {};
@@ -50,6 +51,7 @@ class ActionsBar extends PureComponent {
             amIModerator,
             isPollingEnabled,
             allowExternalVideo,
+            allowStreaming,
             handleTakePresenter,
             intl,
             isSharingVideo,

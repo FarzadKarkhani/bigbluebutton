@@ -92,11 +92,13 @@ public:
       - warning
   externalVideoPlayer:
     enabled: true
+  streaming:
+    enabled: true
   networkMonitoring:
     enableNetworkMonitoring: false
     packetLostThreshold: 10
   kurento:
-    wsUrl: wss://webinar-bk.lahzenegar.com/bbb-webrtc-sfu
+    wsUrl: wss://webinar-dev.lahzenegar.com/bbb-webrtc-sfu
     # Valid for video-provider. Time (ms) before its WS connection times out
     # and tries to reconnect.
     wsConnectionTimeout: 4000

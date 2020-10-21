@@ -46,4 +46,5 @@ export default {
   getUsersNotAssigned,
   takePresenterRole,
   isSharingVideo: () => getVideoUrl(),
+  isStreaming: () => { return false },
 };
