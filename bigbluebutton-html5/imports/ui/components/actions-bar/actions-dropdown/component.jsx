@@ -11,6 +11,7 @@ import DropdownListItem from '/imports/ui/components/dropdown/list/item/componen
 import PresentationUploaderContainer from '/imports/ui/components/presentation/presentation-uploader/container';
 import { withModalMounter } from '/imports/ui/components/modal/service';
 import withShortcutHelper from '/imports/ui/components/shortcut-help/service';
+import { notify } from '/imports/ui/services/notification';
 import { styles } from '../styles';
 import ExternalVideoModal from '/imports/ui/components/external-video-player/modal/container';
 
@@ -82,6 +83,14 @@ const intlMessages = defineMessages({
   stopStreamLabel: {
       id: 'app.actionsBar.actionsDropdown.stopStreamLabel',
       description: 'Stop streaming on Lahzenegar button',
+  },
+  startStreamNotify: {
+      id: 'app.notification.streamingStart',
+      description: 'Start streaming on Lahzenegar notification',
+  },
+  stopStreamNotify: {
+      id: 'app.notification.streamingStop',
+      description: 'Stop streaming on Lahzenegar notification',
   },
 });
 
@@ -213,7 +222,7 @@ class ActionsDropdown extends PureComponent {
 
   handleStreamingClick() {
   //  TODO: Add API call for lws
-
+      notify(intl.formatMessage(intlMessages.startStreamNotify), 'info', 'network')
   }
 
   render() {

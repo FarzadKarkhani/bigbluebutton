@@ -503,6 +503,8 @@
     "app.notification.recordingPaused": "جلسه دیگر ضبط نمی‌شود",
     "app.notification.recordingAriaLabel": "زمان رکورد شده",
     "app.notification.userJoinPushAlert": "{0} به کلاس پیوستند",
+    "app.notification.streamingStart": "ارسال استریم به لحظه‌نگار شروع شد",
+    "app.notification.streamingStop": "ارسال استریم به لحظه‌نگار متوقف شد",
     "app.shortcut-help.title": "میانبرهای صفحه کلید",
     "app.shortcut-help.accessKeyNotAvailable": "کلیدهای دسترسی موجود نیست",
     "app.shortcut-help.comboLabel": "ترکیبی",
