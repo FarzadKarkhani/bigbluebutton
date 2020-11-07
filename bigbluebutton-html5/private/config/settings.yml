@@ -1,21 +1,18 @@
 public:
   app:
-    mobileFontSize: 14px
-    desktopFontSize: 12px
+    mobileFontSize: 16px
+    desktopFontSize: 14px
     audioChatNotification: false
     autoJoin: true
     listenOnlyMode: true
     forceListenOnly: false
-    skipCheck: true
-    clientTitle: لحظه نگار | وبینار
-    appName: لحظه نگار وبینار
+    skipCheck: false
+    clientTitle: BigBlueButton
+    appName: BigBlueButton HTML5 Client
     bbbServerVersion: 2.2
-    copyright: "لحظه‌نگار سرویس برگزاری رویداد آنلاین - کلاینت بیگ‌بلوباتن"
-    companyName: "شرکت پارسی زبانان سامانه (سهامی خاص)"
-    companyAddress: "آدرس: تهران، خیابان مطهری، پلاک ۲۲، طبقه ۵"
-    companyPhone: "شماره تماس پشتیبانی: 02191014515"
-    html5ClientBuild: 2.2.9
-    helpLink: https://lzn.gr/webinarhelp
+    copyright: "©2020 BigBlueButton Inc."
+    html5ClientBuild: HTML5_CLIENT_VERSION
+    helpLink: https://bigbluebutton.org/html5/
     lockOnJoin: true
     cdn: ""
     basename: "/html5client"
@@ -47,7 +44,7 @@ public:
         userJoinAudioAlerts: false
         userJoinPushAlerts: false
         fallbackLocale: en
-        overrideLocale: fa
+        overrideLocale: null
       audio:
         inputDeviceId: undefined
         outputDeviceId: undefined
@@ -98,7 +95,7 @@ public:
     enableNetworkMonitoring: false
     packetLostThreshold: 10
   kurento:
-    wsUrl: wss://webinar-dev.lahzenegar.com/bbb-webrtc-sfu
+    wsUrl: wss://webinar-1.lahzenegar.com/bbb-webrtc-sfu
     # Valid for video-provider. Time (ms) before its WS connection times out
     # and tries to reconnect.
     wsConnectionTimeout: 4000
@@ -235,9 +232,9 @@ public:
     toggleSelfVoice: false
   poll:
     enabled: true
-    max_custom: 10
+    max_custom: 5
   captions:
-    enabled: false
+    enabled: true
     enableDictation: false
     backgroundColor: "#000000"
     fontColor: "#FFFFFF"
@@ -274,7 +271,7 @@ public:
       showChat: false
       noColors: true
       showControls: true
-      rtl: true
+      rtl: false
   layout:
     autoSwapLayout: false
     hidePresentation: false
@@ -293,7 +290,7 @@ public:
     #the SDP is sent to the server with the candidates the browser gathered
     #so far. Increasing this value might help avoiding 1004 error when
     #user activates microphone.
-    iceGatheringTimeout: 15000
+    iceGatheringTimeout: 5000
   presentation:
     defaultPresentationFile: default.pdf
     panZoomThrottle: 32
@@ -302,42 +299,42 @@ public:
     uploadSizeMin: 0
     uploadSizeMax: 50000000
     uploadValidMimeTypes:
-    - extension: .pdf
-      mime: application/pdf
-    - extension: .doc
-      mime: application/msword
-    - extension: .docx
-      mime: application/vnd.openxmlformats-officedocument.wordprocessingml.document
-    - extension: .xls
-      mime: application/vnd.ms-excel
-    - extension: .xlsx
-      mime: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-    - extension: .ppt
-      mime: application/vnd.ms-powerpoint
-    - extension: .pptx
-      mime: application/vnd.openxmlformats-officedocument.presentationml.presentation
-    - extension: .txt
-      mime: text/plain
-    - extension: .rtf
-      mime: application/rtf
-    - extension: .odt
-      mime: application/vnd.oasis.opendocument.text
-    - extension: .ods
-      mime: application/vnd.oasis.opendocument.spreadsheet
-    - extension: .odp
-      mime: application/vnd.oasis.opendocument.presentation
-    - extension: .odg
-      mime: application/vnd.oasis.opendocument.graphics
-    - extension: .odc
-      mime: application/vnd.oasis.opendocument.chart
-    - extension: .odi
-      mime: application/vnd.oasis.opendocument.image
-    - extension: .jpg
-      mime: image/jpeg
-    - extension: .jpeg
-      mime: image/jpeg
-    - extension: .png
-      mime: image/png
+      - extension: .pdf
+        mime: application/pdf
+      - extension: .doc
+        mime: application/msword
+      - extension: .docx
+        mime: application/vnd.openxmlformats-officedocument.wordprocessingml.document
+      - extension: .xls
+        mime: application/vnd.ms-excel
+      - extension: .xlsx
+        mime: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+      - extension: .ppt
+        mime: application/vnd.ms-powerpoint
+      - extension: .pptx
+        mime: application/vnd.openxmlformats-officedocument.presentationml.presentation
+      - extension: .txt
+        mime: text/plain
+      - extension: .rtf
+        mime: application/rtf
+      - extension: .odt
+        mime: application/vnd.oasis.opendocument.text
+      - extension: .ods
+        mime: application/vnd.oasis.opendocument.spreadsheet
+      - extension: .odp
+        mime: application/vnd.oasis.opendocument.presentation
+      - extension: .odg
+        mime: application/vnd.oasis.opendocument.graphics
+      - extension: .odc
+        mime: application/vnd.oasis.opendocument.chart
+      - extension: .odi
+        mime: application/vnd.oasis.opendocument.image
+      - extension: .jpg
+        mime: image/jpeg
+      - extension: .jpeg
+        mime: image/jpeg
+      - extension: .png
+        mime: image/png
   user:
     role_moderator: MODERATOR
     role_viewer: VIEWER
@@ -350,77 +347,77 @@ public:
     toolbar:
       multiUserPenOnly: false
       colors:
-      - label: black
-        value: "#000000"
-      - label: white
-        value: "#ffffff"
-      - label: red
-        value: "#ff0000"
-      - label: orange
-        value: "#ff8800"
-      - label: eletricLime
-        value: "#ccff00"
-      - label: Lime
-        value: "#00ff00"
-      - label: Cyan
-        value: "#00ffff"
-      - label: dodgerBlue
-        value: "#0088ff"
-      - label: blue
-        value: "#0000ff"
-      - label: violet
-        value: "#8800ff"
-      - label: magenta
-        value: "#ff00ff"
-      - label: silver
-        value: "#c0c0c0"
+        - label: black
+          value: "#000000"
+        - label: white
+          value: "#ffffff"
+        - label: red
+          value: "#ff0000"
+        - label: orange
+          value: "#ff8800"
+        - label: eletricLime
+          value: "#ccff00"
+        - label: Lime
+          value: "#00ff00"
+        - label: Cyan
+          value: "#00ffff"
+        - label: dodgerBlue
+          value: "#0088ff"
+        - label: blue
+          value: "#0000ff"
+        - label: violet
+          value: "#8800ff"
+        - label: magenta
+          value: "#ff00ff"
+        - label: silver
+          value: "#c0c0c0"
       thickness:
-      - value: 14
-      - value: 12
-      - value: 10
-      - value: 8
-      - value: 6
-      - value: 4
-      - value: 2
-      - value: 1
+        - value: 14
+        - value: 12
+        - value: 10
+        - value: 8
+        - value: 6
+        - value: 4
+        - value: 2
+        - value: 1
       font_sizes:
-      - value: 36
-      - value: 32
-      - value: 28
-      - value: 24
-      - value: 20
-      - value: 16
+        - value: 36
+        - value: 32
+        - value: 28
+        - value: 24
+        - value: 20
+        - value: 16
       tools:
-      - icon: text_tool
-        value: text
-      - icon: line_tool
-        value: line
-      - icon: circle_tool
-        value: ellipse
-      - icon: triangle_tool
-        value: triangle
-      - icon: rectangle_tool
-        value: rectangle
-      - icon: pen_tool
-        value: pencil
-      - icon: hand
-        value: hand
+        - icon: text_tool
+          value: text
+        - icon: line_tool
+          value: line
+        - icon: circle_tool
+          value: ellipse
+        - icon: triangle_tool
+          value: triangle
+        - icon: rectangle_tool
+          value: rectangle
+        - icon: pen_tool
+          value: pencil
+        - icon: hand
+          value: hand
       presenterTools:
-      - text
-      - line
-      - ellipse
-      - triangle
-      - rectangle
-      - pencil
-      - hand
+        - text
+        - line
+        - ellipse
+        - triangle
+        - rectangle
+        - pencil
+        - hand
       multiUserTools:
-      - text
-      - line
-      - ellipse
-      - triangle
-      - rectangle
-      - pencil
-      - hand
+        - text
+        - line
+        - ellipse
+        - triangle
+        - rectangle
+        - pencil
+        - hand
   clientLog:
     server: { enabled: true, level: info }
     console: { enabled: true, level: debug }
@@ -447,15 +444,15 @@ private:
       toAkkaApps: to-akka-apps-redis-channel
       toThirdParty: to-third-party-redis-channel
     subscribeTo:
-    - to-html5-redis-channel
-    - from-akka-apps-*
-    - from-third-party-redis-channel
-    - from-etherpad-redis-channel
+      - to-html5-redis-channel
+      - from-akka-apps-*
+      - from-third-party-redis-channel
+      - from-etherpad-redis-channel
     async:
-    - from-akka-apps-wb-redis-channel
+      - from-akka-apps-wb-redis-channel
     ignored:
-    - CheckAlivePongSysMsg
-    - DoLatencyTracerMsg
+      - CheckAlivePongSysMsg
+      - DoLatencyTracerMsg
   serverLog:
     level: info
     streamerLog: false
