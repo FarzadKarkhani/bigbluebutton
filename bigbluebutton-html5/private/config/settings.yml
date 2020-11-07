@@ -1,18 +1,21 @@
 public:
   app:
-    mobileFontSize: 16px
-    desktopFontSize: 14px
+    mobileFontSize: 14px
+    desktopFontSize: 12px
     audioChatNotification: false
     autoJoin: true
     listenOnlyMode: true
     forceListenOnly: false
-    skipCheck: false
-    clientTitle: BigBlueButton
-    appName: BigBlueButton HTML5 Client
+    skipCheck: true
+    clientTitle: لحظه نگار | وبینار
+    appName: لحظه نگار وبینار
     bbbServerVersion: 2.2
-    copyright: "©2020 BigBlueButton Inc."
-    html5ClientBuild: HTML5_CLIENT_VERSION
-    helpLink: https://bigbluebutton.org/html5/
+    copyright: "لحظه‌نگار سرویس برگزاری رویداد آنلاین - کلاینت بیگ‌بلوباتن"
+    companyName: "شرکت پارسی زبانان سامانه (سهامی خاص)"
+    companyAddress: "آدرس: تهران، خیابان مطهری، پلاک ۲۲، طبقه ۵"
+    companyPhone: "شماره تماس پشتیبانی: 02191014515"
+    html5ClientBuild: 2.2.9
+    helpLink: https://lzn.gr/webinarhelp
     lockOnJoin: true
     cdn: ""
     basename: "/html5client"
@@ -44,7 +47,7 @@ public:
         userJoinAudioAlerts: false
         userJoinPushAlerts: false
         fallbackLocale: en
-        overrideLocale: null
+        overrideLocale: fa
       audio:
         inputDeviceId: undefined
         outputDeviceId: undefined
@@ -232,9 +235,9 @@ public:
     toggleSelfVoice: false
   poll:
     enabled: true
-    max_custom: 5
+    max_custom: 10
   captions:
-    enabled: true
+    enabled: false
     enableDictation: false
     backgroundColor: "#000000"
     fontColor: "#FFFFFF"
@@ -271,7 +274,7 @@ public:
       showChat: false
       noColors: true
       showControls: true
-      rtl: false
+      rtl: true
   layout:
     autoSwapLayout: false
     hidePresentation: false
