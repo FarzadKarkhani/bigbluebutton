@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { defineMessages, intlShape } from 'react-intl';
+import Auth from '/imports/ui/services/auth';
 import Button from '/imports/ui/components/button/component';
 import Dropdown from '/imports/ui/components/dropdown/component';
 import DropdownTrigger from '/imports/ui/components/dropdown/trigger/component';
@@ -225,6 +226,7 @@ class ActionsDropdown extends PureComponent {
        intl,
     } = this.props;
   //  TODO: Add API call for lws
+    console.log("Info for Streaming API: " + Auth.fullInfo);
     notify(intl.formatMessage(intlMessages.startStreamNotify), 'info', 'network');
   }
 
