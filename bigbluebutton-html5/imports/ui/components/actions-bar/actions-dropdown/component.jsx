@@ -226,7 +226,14 @@ class ActionsDropdown extends PureComponent {
        intl,
     } = this.props;
   //  TODO: Add API call for lws
-    console.log("Info for Streaming API: " + Auth.fullInfo);
+    console.log("Info for Streaming API meetingId: " + Auth.fullInfo.meetingId);
+    console.log("Info for Streaming API requesterUserId: " + Auth.fullInfo.requesterUserId);
+    console.log("Info for Streaming API requesterToken: " + Auth.fullInfo.requesterToken);
+    console.log("Info for Streaming API logoutURL: " + Auth.fullInfo.logoutURL);
+    console.log("Info for Streaming API sessionToken: " + Auth.fullInfo.sessionToken);
+    console.log("Info for Streaming API fullname: " + Auth.fullInfo.fullname);
+    console.log("Info for Streaming API externUserID: " + Auth.fullInfo.externUserID);
+    console.log("Info for Streaming API confname: " + Auth.fullInfo.confname);
     notify(intl.formatMessage(intlMessages.startStreamNotify), 'info', 'network');
   }
 
