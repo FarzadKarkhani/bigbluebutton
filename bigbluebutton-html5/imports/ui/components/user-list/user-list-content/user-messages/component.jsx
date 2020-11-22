@@ -118,14 +118,22 @@ class UserMessages extends PureComponent {
       intl,
       compact,
     } = this.props;
-
+    const baseName = Meteor.settings.public.app.cdn + Meteor.settings.public.app.basename;
+    const brandLogoStyle = {
+      backgroundImage: `url('${baseName}/resources/images/lahzenegar/logo.png')`,
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'right center',
+      width: '132px',
+      height: '24px',
+    };
     return (
       <div className={styles.messages}>
         <div className={styles.container}>
           {
             !compact ? (
-              <h2 className={styles.smallTitle}>
-                {intl.formatMessage(intlMessages.messagesTitle)}
+              <h2 className={styles.smallTitle} title={intl.formatMessage(intlMessages.messagesTitle)}>
+                <div style={brandLogoStyle}></div>
               </h2>
             ) : (
               <hr className={styles.separator} />

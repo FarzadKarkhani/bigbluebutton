@@ -225,7 +225,7 @@ class ActionsDropdown extends PureComponent {
     const {
        intl,
     } = this.props;
-  //  TODO: Add API call for lws
+    //  TODO: Add API call for lws
     console.log("Info for Streaming API meetingId: " + Auth.fullInfo.meetingId);
     console.log("Info for Streaming API requesterUserId: " + Auth.fullInfo.requesterUserId);
     console.log("Info for Streaming API requesterToken: " + Auth.fullInfo.requesterToken);
