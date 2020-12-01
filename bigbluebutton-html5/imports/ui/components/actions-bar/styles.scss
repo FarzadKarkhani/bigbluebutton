@@ -107,3 +107,20 @@
     border-color: var(--color-white) !important;
   }
 }
+
+.disable {
+  opacity: 0.6;
+  background-color: transparent !important;
+  color: var(--color-gray-lighter) !important;
+  span, i {
+    color: var(--color-gray-lighter) !important;
+  }
+  &:hover,
+  &:focus {
+    background-color: transparent !important;
+    color: var(--color-gray-lighter) !important;
+    span, i {
+      color: var(--color-gray-lighter) !important;
+    }
+  }
+}

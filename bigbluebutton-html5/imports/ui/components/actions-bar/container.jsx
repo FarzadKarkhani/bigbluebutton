@@ -41,7 +41,6 @@ export default withTracker(() => ({
   currentSlidHasContent: PresentationService.currentSlidHasContent(),
   parseCurrentSlideContent: PresentationService.parseCurrentSlideContent,
   isSharingVideo: Service.isSharingVideo(),
-  isStreaming: Service.isStreaming(),
   screenShareEndAlert,
   screenshareDataSavingSetting: dataSavingSetting(),
   isCaptionsAvailable: CaptionsService.isCaptionsAvailable(),

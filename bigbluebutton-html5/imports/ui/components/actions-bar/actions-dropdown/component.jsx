@@ -13,6 +13,7 @@ import PresentationUploaderContainer from '/imports/ui/components/presentation/p
 import { withModalMounter } from '/imports/ui/components/modal/service';
 import withShortcutHelper from '/imports/ui/components/shortcut-help/service';
 import { notify } from '/imports/ui/services/notification';
+import ChatService from '/imports/ui/components/chat/service';
 import { styles } from '../styles';
 import ExternalVideoModal from '/imports/ui/components/external-video-player/modal/container';
 
@@ -105,10 +106,20 @@ class ActionsDropdown extends PureComponent {
 
     this.handlePresentationClick = this.handlePresentationClick.bind(this);
     this.handleExternalVideoClick = this.handleExternalVideoClick.bind(this);
+    this.handleStreamingStatus = this.handleStreamingStatus.bind(this);
     this.handleStreamingClick = this.handleStreamingClick.bind(this);
+
+    this.state = {
+      fetching: false,
+      isStreaming: false,
+    };
   }
 
-  componentWillUpdate(nextProps) {
+  componentDidMount() {
+      this.handleStreamingStatus();
+  }
+
+    componentWillUpdate(nextProps) {
     const { amIPresenter: isPresenter } = nextProps;
     const { amIPresenter: wasPresenter, mountModal } = this.props;
     if (wasPresenter && !isPresenter) {
@@ -124,10 +135,14 @@ class ActionsDropdown extends PureComponent {
       allowStreaming,
       handleTakePresenter,
       isSharingVideo,
-      isStreaming,
       isPollingEnabled,
       stopExternalVideoShare,
     } = this.props;
+
+      const {
+          isStreaming,
+          fetching,
+      } = this.state;
 
     const {
       pollBtnLabel,
@@ -192,6 +207,8 @@ class ActionsDropdown extends PureComponent {
                       : intl.formatMessage(intlMessages.stopStreamLabel)}
                   description="Streaming on Lahzenegar"
                   key="streaming"
+                  className={fetching ? styles.disable : ''}
+                  style={{ cursor: fetching ? 'wait' : 'pointer' }}
                   onClick={this.handleStreamingClick}
               />
           )
@@ -221,21 +238,103 @@ class ActionsDropdown extends PureComponent {
     mountModal(<PresentationUploaderContainer />);
   }
 
-  handleStreamingClick() {
+  startStreaming() {
     const {
-       intl,
+      intl,
     } = this.props;
-    //  TODO: Add API call for lws
-    console.log("Info for Streaming API meetingId: " + Auth.fullInfo.meetingId);
-    console.log("Info for Streaming API requesterUserId: " + Auth.fullInfo.requesterUserId);
-    console.log("Info for Streaming API requesterToken: " + Auth.fullInfo.requesterToken);
-    console.log("Info for Streaming API logoutURL: " + Auth.fullInfo.logoutURL);
-    console.log("Info for Streaming API sessionToken: " + Auth.fullInfo.sessionToken);
-    console.log("Info for Streaming API fullname: " + Auth.fullInfo.fullname);
-    console.log("Info for Streaming API externUserID: " + Auth.fullInfo.externUserID);
-    console.log("Info for Streaming API confname: " + Auth.fullInfo.confname);
-    notify(intl.formatMessage(intlMessages.startStreamNotify), 'info', 'network');
+
+    this.setState({ fetching: true }, () => {
+      fetch(`https://api.lahzenegar.com/v3/bbb/meetings/${Auth.fullInfo.meetingId}/start-recording`, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ user_id: Auth.fullInfo.externUserID })
+        })
+          .then((response) => {
+            if (!response.ok) {
+              return Promise.reject();
+            }
+
+            response.json().then(function(data) {
+                notify(intl.formatMessage(intlMessages.startStreamNotify), 'info', 'network');
+                return ChatService.sendGroupMessage(`از طریق لینک زیر می‌توانید بینندگان را به مشاهده این وبینار دعوت کنید: \n${data.data.share_url}`);
+            });
+            this.setState({ fetching: false, isStreaming: true });
+          })
+          .catch(() => {
+              this.setState({ fetching: false });
+          });
+    });
   }
+
+  stopStreaming() {
+    const {
+      intl,
+    } = this.props;
+
+    this.setState({ fetching: true }, () => {
+      fetch(`https://api.lahzenegar.com/v3/bbb/meetings/${Auth.fullInfo.meetingId}/stop-recording`, {
+        method: 'POST',
+        headers: {
+           'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ user_id: Auth.fullInfo.externUserID })
+      })
+          .then((response) => {
+            if (!response.ok) {
+              return Promise.reject();
+            }
+
+            response.json().then(function(data) {
+                notify(intl.formatMessage(intlMessages.stopStreamNotify), 'info', 'network');
+            });
+            this.setState({ fetching: false, isStreaming: false });
+          })
+          .catch(() => {
+            this.setState({ fetching: false });
+          });
+    });
+  }
+
+  handleStreamingStatus() {
+    const url = `https://api.lahzenegar.com/v3/bbb/meetings/${Auth.fullInfo.meetingId}/recording-status?userID=${Auth.fullInfo.externUserID}`;
+    const _self = this;
+    this.setState({ fetching: true }, () => {
+      fetch(url)
+          .then((response) => {
+            if (!response.ok) {
+              return Promise.reject();
+            }
+
+              response.json().then(function(data) {
+                  if (data && data.data) {
+                      _self.setState({ isStreaming: data.data.status === 'STATUS.LIVE' });
+                  }
+              });
+            this.setState({ fetching: false });
+          })
+          .catch(() => {
+            this.setState({ fetching: false });
+          });
+    });
+  }
+
+  handleStreamingClick() {
+      const {
+          isStreaming,
+          fetching,
+      } = this.state;
+      if (fetching) {
+          return null;
+      }
+
+      if (isStreaming) {
+          this.stopStreaming();
+      } else {
+          this.startStreaming();
+        }
+    }
 
   render() {
     const {
@@ -266,7 +365,7 @@ class ActionsDropdown extends PureComponent {
             color="primary"
             size="lg"
             circle
-            onClick={() => null}
+            onClick={() => this.handleStreamingStatus()}
           />
         </DropdownTrigger>
         <DropdownContent placement="top left">
